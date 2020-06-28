@@ -20,7 +20,6 @@ function App() {
         .then((res) => {
           let result = res.data;
           setWeather({});
-          console.log(result);
           setWeather(result);
 
           //background gradient logic
@@ -29,10 +28,8 @@ function App() {
             result.dt > result.sys.sunset - 87400 * 1000
           ) {
             setNight(true);
-            console.log("NIGHT");
           } else {
             setNight(false);
-            console.log("DAY");
           }
         });
     }
