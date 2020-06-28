@@ -1,38 +1,126 @@
+@import url("https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Balsamiq Sans", cursive;
+}
+
+html {
+  font-size: 12px;
+}
+
+:root {
+  --white: #eeeeee;
+}
+
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  height: 100vh;
+  width: 100vw;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
 }
 
-.App-link {
-  color: #61dafb;
+.welcome-msg {
+  text-align: center;
+  color: var(--white);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.search-container {
+  width: 100vw;
+}
+
+.search {
+  border: none;
+  background-color: rgba(238, 238, 238, 0.8);
+  padding: 1rem;
+  width: 95%;
+  max-width: 50rem;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  border-radius: 0 0 1rem 1rem;
+}
+
+.weather-container {
+  max-height: 80vh;
+  width: 95vw;
+  max-width: 50rem;
+  color: var(--white);
+  font-size: 1rem;
+  animation-name: pop-in;
+  animation-duration: 0.3s;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.name {
+  text-align: center;
+  font-size: 3em;
+
+  margin-bottom: 1em;
+}
+
+.temp {
+  font-size: 5em;
+  animation-name: fade-in;
+  animation-duration: 0.5s;
+}
+
+.condition {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  animation-name: fade-in;
+  animation-duration: 1s;
+  margin-bottom: 2em;
+}
+
+.condition .condition-main {
+  font-size: 1.5em;
+}
+.condition .condition-description {
+  font-size: 0.75em;
+}
+
+.wind-direction {
+  filter: invert(1);
+  width: 1em;
+}
+
+/* SCREEN SIZE QUERIES */
+@media (min-width: 768px) {
+  html {
+    font-size: 14px;
   }
-  to {
-    transform: rotate(360deg);
+}
+
+/* ANIMATIONS */
+@keyframes pop-in {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }
